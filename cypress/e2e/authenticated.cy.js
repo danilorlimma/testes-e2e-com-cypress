@@ -1,12 +1,13 @@
 import { faker } from '@faker-js/faker/locale/en'
 
-describe('CRUD', () => {
+describe('Scenarios where authentication is a pre-condition', () => {
+  beforeEach(()=>{
+    cy.intercept('GET','**/notes').as('getNotes')
+    cy.sessionLogin()
+  })
   it('CRUDs a note', () => {
     const noteDescription = faker.lorem.words(4)
 
-    cy.intercept('GET', '**/notes').as('getNotes')
-
-    cy.sessionLogin()
     //Create
     cy.log('Create COMEÇA AQUIIIIIIIII')
     cy.createNote(noteDescription)
@@ -27,6 +28,15 @@ describe('CRUD', () => {
     cy.deleteNote(updatedNoteDescription)
     cy.wait('@getNotes')
 
+
+  })
+  it.only('successfully submits the settings form',()=>{
+    cy.intercept('POST','**/prod/billing').as('paymentRequest')
+    cy.fillSettingsFormAndSubmit()
+    cy.wait('@getNotes')
+    cy.wait('@paymentRequest')
+      .its('state')
+      .should('be.equal','Complete')
 
   })
 
