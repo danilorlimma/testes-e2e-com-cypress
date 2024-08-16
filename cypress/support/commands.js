@@ -23,7 +23,7 @@ Cypress.Commands.add('guiLogin', (
   cy.get('#email').type(username)
   cy.get('#password').type(password,{log:false})
   cy.contains('button','Login').click()
-  cy.wait('@getNotes',{timeout:6000})
+  cy.wait('@getNotes')
 })
 Cypress.Commands.add('sessionLogin',(
   username = Cypress.env('USER_EMAIL'),
