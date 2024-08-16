@@ -7,9 +7,7 @@ module.exports = defineConfig({
     defaultCommandTimeout:9000,
     requestTimeout:9000,
     responseTimeout:40000,
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    projectId:'bketdn',
     chromeWebSecurity: false,
     env:{viewportWidthBreakpoint:768,}
   },
