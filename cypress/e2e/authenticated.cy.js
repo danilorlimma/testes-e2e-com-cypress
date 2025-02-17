@@ -9,7 +9,7 @@ describe('Scenarios where authentication is a pre-condition', () => {
     const noteDescription = faker.lorem.words(8)
 
     //Create
-    cy.log('Create COMEÇA AQUIIIIIIIII')
+    cy.log('Create COMEÇA AQUIIIIIII')
     cy.createNote(noteDescription)
     cy.wait('@getNotes')
 
