@@ -9,6 +9,6 @@ module.exports = defineConfig({
     responseTimeout:40000,
     projectId:'bketdn',
     chromeWebSecurity: false,
-    env:{viewportWidthBreakpoint:768,}
+    env:{viewportWidthBreakpoint:768}
   },
 })
