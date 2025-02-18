@@ -7,7 +7,7 @@ module.exports = defineConfig({
     defaultCommandTimeout:9000,
     requestTimeout:9000,
     responseTimeout:40000,
-    projectId:'bketdn',
+    projectId:'eiyk8h',
     chromeWebSecurity: false,
     env:{viewportWidthBreakpoint:768}
   },
