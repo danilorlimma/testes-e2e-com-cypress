@@ -2,13 +2,17 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl:'https://notes-serverless-app.com',
-    experimentalRunAllSpecs:true,
-    defaultCommandTimeout:9000,
-    requestTimeout:9000,
-    responseTimeout:40000,
-    projectId:'eiyk8h',
+    baseUrl: 'https://notes-serverless-app.com',
+    experimentalRunAllSpecs: true,
+    defaultCommandTimeout: 9000,
+    requestTimeout: 9000,
+    responseTimeout: 40000,
+    projectId: 'eiyk8h',
     chromeWebSecurity: false,
-    env:{viewportWidthBreakpoint:768}
-  },
+    env: { viewportWidthBreakpoint: 768 },
+    setupNodeEvents(on, config) {
+      require('@cypress/grep/src/plugin')(config)
+      return config
+    }
+  }
 })
